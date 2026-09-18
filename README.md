@@ -1,87 +1,55 @@
-DevOps Project 1: Linux Server Setup on AWS EC2
+# 🚀 DevOps Project 1: Linux Server Setup on AWS EC2
 
-📌 Project Overview
+## 📌 Project Overview
 
-This project demonstrates how to launch and configure an Ubuntu Linux server on AWS EC2 and install the basic DevOps tools required for development and future CI/CD projects.
+This project demonstrates how to **launch and configure an Ubuntu Linux server on AWS EC2** and install the basic DevOps tools required for development and future **CI/CD projects**.
 
-The project includes:
+### The project includes:
 
-AWS EC2 instance setup
+- **AWS EC2 instance setup**
+- **Ubuntu Linux server configuration**
+- **SSH connection**
+- **Linux package update and upgrade**
+- **Git installation**
+- **Java 17 installation**
+- **Maven installation**
+- **Docker installation**
+- **Docker service configuration**
+- **Docker user permission configuration**
+- **Docker container testing**
+- **Final tool verification**
 
-Ubuntu Linux server configuration
+---
 
-SSH connection
+## 🎯 Project Objective
 
-Linux package update and upgrade
+Set up an **Ubuntu Linux server on AWS EC2** and install, configure, and verify:
 
-Git installation
+- **Git**
+- **Java OpenJDK 17**
+- **Apache Maven**
+- **Docker**
 
-Java 17 installation
+---
 
-Maven installation
+## 🛠 Technologies Used
 
-Docker installation
+| Technology | Purpose |
+|---|---|
+| **AWS EC2** | Cloud virtual server |
+| **Ubuntu Linux** | Server operating system |
+| **SSH** | Secure remote server connection |
+| **Git** | Version control |
+| **Java 17** | Java development environment |
+| **Maven** | Build automation and dependency management |
+| **Docker** | Containerization |
+| **Amazon EBS gp3** | EC2 persistent storage |
 
-Docker service configuration
+---
 
-Docker user permission configuration
+## 🔄 Project Architecture
 
-Docker container testing
-
-Final tool verification
-
-🎯 Project Objective
-
-Set up an Ubuntu Linux server on AWS EC2 and install, configure, and verify:
-
-Git
-
-Java OpenJDK 17
-
-Apache Maven
-
-Docker
-
-🛠 Technologies Used
-
-Technology
-
-Purpose
-
-AWS EC2
-
-Cloud virtual server
-
-Ubuntu Linux
-
-Server operating system
-
-SSH
-
-Secure remote server connection
-
-Git
-
-Version control
-
-Java 17
-
-Java development environment
-
-Maven
-
-Build automation and dependency management
-
-Docker
-
-Containerization
-
-Amazon EBS gp3
-
-EC2 persistent storage
-
-🔄 Project Architecture
-
+```text
 Windows Laptop
       ↓
 AWS Console
@@ -105,134 +73,181 @@ Configure Docker
 Run hello-world Container
       ↓
 Verify All Tools
+```
 
-Step 1: Select Ubuntu AMI
+---
 
-I selected Ubuntu Server as the operating system for the EC2 instance.
+## ✅ Step 1: Select Ubuntu AMI
 
-Configuration
+I selected **Ubuntu Server** as the operating system for the EC2 instance.
 
+### Configuration
+
+```text
 Operating System: Ubuntu Server 26.04 LTS
-
 Architecture: 64-bit (x86)
-
 Default Username: ubuntu
+```
 
-Why Ubuntu?
+### **Why Ubuntu?**
 
-Ubuntu is widely used for cloud servers, DevOps environments, Docker, CI/CD tools, and Linux administration.
+Ubuntu is widely used for:
 
+- Cloud servers
+- DevOps environments
+- Docker
+- CI/CD tools
+- Linux administration
 
+![Select Ubuntu AMI](screenshots/01-select-ubuntu-ami.png)
 
-Step 2: Select EC2 Instance Type
+---
+
+## ✅ Step 2: Select EC2 Instance Type
 
 I selected:
 
+```text
 t3.micro
+```
 
-The instance provides:
+### Instance Resources
 
+```text
 2 vCPU
 1 GiB Memory
+```
 
-It is suitable for this learning DevOps project.
+This instance is suitable for this **DevOps learning project**.
 
+![Select Instance Type](screenshots/02-select-instance-type-t3-micro.png)
 
+---
 
-Step 3: Create SSH Key Pair
+## ✅ Step 3: Create SSH Key Pair
 
-I created a new key pair.
+I created a new SSH key pair.
 
+```text
 Key Pair Name: DevOps-Project-1-Key
 Key Type: RSA
 Private Key Format: .pem
+```
 
-Why is the key pair required?
+### **Why is the key pair required?**
 
-The .pem private key is used to authenticate securely when connecting to the EC2 server using SSH.
+The `.pem` private key is used to securely authenticate when connecting to the EC2 server using SSH.
 
-⚠️ Never upload the .pem private key to GitHub.
+> ⚠️ **Important:** Never upload the `.pem` private key to GitHub.
 
+![Create Key Pair](screenshots/03-create-key-pair.png)
 
+---
 
-Step 4: Configure Security Group
+## ✅ Step 4: Configure Security Group
 
-I configured the security group to allow SSH access.
+I configured the EC2 **Security Group** to allow SSH access.
 
+```text
 Protocol: SSH
 Port: 22
+```
 
-Why SSH?
+### **Why SSH?**
 
-SSH provides a secure remote connection from the local computer to the Ubuntu EC2 server.
+SSH provides a secure remote connection between the local computer and the Ubuntu EC2 server.
 
+![Configure Security Group](screenshots/04-configure-security-group.png)
 
+---
 
-Step 5: Configure EBS Storage
+## ✅ Step 5: Configure EBS Storage
 
 Configured:
 
+```text
 Storage Size: 8 GiB
 Volume Type: gp3
+```
 
-What is Amazon EBS?
+### **What is Amazon EBS?**
 
-Amazon Elastic Block Store acts like a virtual hard disk attached to the EC2 server. It stores the operating system, applications, installed tools, and server data.
+**Amazon Elastic Block Store (EBS)** acts like a virtual hard disk attached to the EC2 server.
 
-Why gp3?
+It stores:
 
-gp3 is a general-purpose SSD suitable for Linux servers and DevOps learning environments.
+- Operating system files
+- Applications
+- Installed DevOps tools
+- Server data
 
+### **Why gp3?**
 
+`gp3` is a **General Purpose SSD** suitable for Linux servers and DevOps learning environments.
 
-Step 6: Launch EC2 Instance
+![Configure EBS Storage](screenshots/05-configure-ebs-storage.png)
 
-After reviewing the configuration, I launched the EC2 instance and waited until it reached the running state.
+---
 
+## ✅ Step 6: Launch EC2 Instance
 
+After reviewing the configuration, I launched the EC2 instance.
 
-Step 7: Get SSH Connection Details
+The instance was successfully created and reached the **Running** state.
+
+![EC2 Instance Running](screenshots/06-instance-running.png)
+
+---
+
+## ✅ Step 7: Get SSH Connection Details
 
 AWS provides the SSH command required to connect to the EC2 instance.
 
-Command
+### **Command**
 
+```bash
 ssh -i "DevOps-Project-1-Key.pem" ubuntu@<EC2-PUBLIC-DNS>
+```
 
-Command Explanation
+### **Command Explanation**
 
-ssh → starts a secure shell connection
+- `ssh` → Starts a secure shell connection
+- `-i` → Specifies the private key
+- `DevOps-Project-1-Key.pem` → Private key used for authentication
+- `ubuntu` → Default Ubuntu username
+- `<EC2-PUBLIC-DNS>` → EC2 server address
 
--i → specifies the private key
+![Connect EC2 SSH Client](screenshots/07-connect-ec2-ssh-client.png)
 
-DevOps-Project-1-Key.pem → private key used for authentication
+---
 
-ubuntu → default Ubuntu username
-
-<EC2-PUBLIC-DNS> → EC2 server address
-
-
-
-Step 8: Connect to Ubuntu EC2 Server
+## ✅ Step 8: Connect to Ubuntu EC2 Server
 
 After connecting successfully, the terminal changes to an Ubuntu server prompt similar to:
 
+```text
 ubuntu@ip-172-31-xx-xx:~$
+```
 
-This confirms that commands are now being executed on the remote Ubuntu EC2 server.
+This confirms that commands are now being executed on the **remote Ubuntu EC2 server**.
 
+![SSH Connected](screenshots/08-ssh-connected-to-ubuntu.png)
 
+---
 
-Step 9: Update Ubuntu Package Repository
+## ✅ Step 9: Update Ubuntu Package Repository
 
-Command
+### **Command**
 
+```bash
 sudo apt update
+```
 
-Why?
+### **Why do we use it?**
 
-sudo apt update refreshes Ubuntu's package index so the server knows about the latest packages available from its configured repositories.
+`sudo apt update` refreshes Ubuntu's package index so the server knows about the latest packages available from configured repositories.
 
+```text
 sudo apt update
       ↓
 Check repositories
@@ -240,313 +255,412 @@ Check repositories
 Download latest package information
       ↓
 Package index refreshed
+```
 
-Step 10: Upgrade Installed Packages
+---
 
-Command
+## ✅ Step 10: Upgrade Installed Packages
 
+### **Command**
+
+```bash
 sudo apt upgrade -y
+```
 
-Why?
+### **Why do we use it?**
 
 This upgrades currently installed packages to newer available versions.
 
-Meaning
+### **Command Meaning**
 
-sudo → run with administrator privileges
+- `sudo` → Run with administrator privileges
+- `apt` → Ubuntu package manager
+- `upgrade` → Upgrade installed packages
+- `-y` → Automatically answer **Yes**
 
-apt → Ubuntu package manager
+### **Difference**
 
-upgrade → upgrade installed packages
-
--y → automatically answer Yes to prompts
-
-Difference
-
+```text
 sudo apt update
 = Refresh package information
 
 sudo apt upgrade -y
 = Install available package upgrades
+```
 
-Step 11: Install Git
+---
 
-Command
+## ✅ Step 11: Install Git
 
+### **Command**
+
+```bash
 sudo apt install git -y
+```
 
-Verify
+### **Verify Git**
 
+```bash
 git --version
+```
 
-Why Git?
+### **Why Git?**
 
-Git is a distributed version-control system used to:
+Git is a **distributed version-control system** used to:
 
-Track source-code changes
+- Track source-code changes
+- Maintain project history
+- Collaborate with developers
+- Create branches
+- Work with GitHub repositories
 
-Maintain project history
+---
 
-Collaborate with developers
+## ✅ Step 12: Install Java 17
 
-Create branches
+### **Command**
 
-Work with GitHub repositories
-
-Step 12: Install Java 17
-
-Command
-
+```bash
 sudo apt install openjdk-17-jdk -y
+```
 
-Verify
+### **Verify Java**
 
+```bash
 java --version
+```
 
-Why Java 17?
+### **Why Java 17?**
 
-Java 17 is a Long-Term Support version suitable for Java applications and many enterprise and DevOps environments.
+Java 17 is a **Long-Term Support (LTS)** version suitable for Java applications and many enterprise and DevOps environments.
 
-Step 13: Install Apache Maven
+---
 
-Command
+## ✅ Step 13: Install Apache Maven
 
+### **Command**
+
+```bash
 sudo apt install maven -y
+```
 
-Verify
+### **Verify Maven**
 
+```bash
 mvn --version
+```
 
-Why Maven?
+### **Why Maven?**
 
-Maven is a build automation and dependency-management tool mainly used for Java projects. It helps with:
+Maven is a **build automation and dependency-management tool** mainly used for Java projects.
 
-Compiling source code
+It helps with:
 
-Managing dependencies
+- Compiling source code
+- Managing dependencies
+- Running tests
+- Packaging applications
 
-Running tests
+---
 
-Packaging applications
+## ✅ Step 14: Install Docker Prerequisites
 
-Step 14: Install Docker Prerequisites
+### **Command**
 
-Command
-
+```bash
 sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+```
 
-Why?
+### **Why are these packages required?**
 
-ca-certificates → allows Ubuntu to trust HTTPS certificates
+- **`ca-certificates`** → Allows Ubuntu to trust HTTPS certificates
+- **`curl`** → Downloads Docker files and signing keys
+- **`software-properties-common`** → Provides repository-management utilities
+- **`apt-transport-https`** → Supports package downloads over HTTPS
 
-curl → downloads Docker files and signing keys
+---
 
-software-properties-common → provides repository-management utilities
+## ✅ Step 15: Add Docker Official GPG Key
 
-apt-transport-https → supports package downloads over HTTPS
+### **Command**
 
-Step 15: Add Docker Official GPG Key
-
-Command
-
+```bash
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
 sudo gpg --dearmor -o /usr/share/keyrings/docker.gpg
+```
 
-Why?
+### **Why is the Docker GPG key required?**
 
-Docker digitally signs its packages. Ubuntu uses Docker's GPG key to verify that:
+Docker digitally signs its software packages.
 
-The package really came from Docker
+Ubuntu uses Docker's GPG key to verify:
 
-The package has not been modified
+- The package really came from Docker
+- The package has not been modified
+- The package can be trusted
 
+```text
 Docker Package
       ↓
 Signed by Docker
       ↓
-Ubuntu checks signature
+Ubuntu Checks Signature
       ↓
 Docker GPG Key
       ↓
 Trusted Package ✅
+```
 
-Step 16: Add Docker Official Repository
+---
 
-Command
+## ✅ Step 16: Add Docker Official Repository
 
+### **Command**
+
+```bash
 echo \
 "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker.gpg] \
 https://download.docker.com/linux/ubuntu \
 $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
 sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
 
-Then refresh the package index:
+Refresh the package index:
 
+```bash
 sudo apt update
+```
 
-Why?
+### **Why?**
 
 Adding Docker's official repository allows Ubuntu to download Docker Engine packages directly from Docker's repository.
 
-Step 17: Install Docker Engine
+---
 
-Command
+## ✅ Step 17: Install Docker Engine
 
+### **Command**
+
+```bash
 sudo apt install docker-ce docker-ce-cli containerd.io -y
+```
 
-Package Explanation
+### **Package Explanation**
 
-docker-ce → Docker Community Edition Engine
+- **`docker-ce`** → Docker Community Edition Engine
+- **`docker-ce-cli`** → Docker command-line interface
+- **`containerd.io`** → Container runtime used by Docker
 
-docker-ce-cli → Docker command-line interface
+### **Verify Docker**
 
-containerd.io → container runtime
-
-Verify
-
+```bash
 docker --version
+```
 
-Step 18: Start Docker Service
+---
 
-Command
+## ✅ Step 18: Start Docker Service
 
+### **Command**
+
+```bash
 sudo systemctl start docker
+```
 
-Why?
+### **Why?**
 
-Starts the Docker service immediately.
+This starts the **Docker service immediately**.
 
-Step 19: Enable Docker at Boot
+---
 
-Command
+## ✅ Step 19: Enable Docker at Boot
 
+### **Command**
+
+```bash
 sudo systemctl enable docker
+```
 
-Why?
+### **Why?**
 
-Automatically starts Docker whenever the Linux server reboots.
+This configures Docker to start automatically whenever the Linux server reboots.
 
-Step 20: Check Docker Service Status
+---
 
-Command
+## ✅ Step 20: Check Docker Service Status
 
+### **Command**
+
+```bash
 sudo systemctl status docker
+```
 
-Expected result:
+### **Expected Result**
 
+```text
 Active: active (running)
+```
 
-This confirms that the Docker daemon is running.
+This confirms that the **Docker daemon is running successfully**.
 
-Step 21: Add Ubuntu User to Docker Group
+---
 
-Command
+## ✅ Step 21: Add Ubuntu User to Docker Group
 
+### **Command**
+
+```bash
 sudo usermod -aG docker $USER
+```
 
-Why?
+### **Why?**
 
-This adds the current Ubuntu user to the docker group so Docker commands can be run without sudo.
+By default, Docker commands may require:
 
-Step 22: Apply Docker Group Permission
+```bash
+sudo docker ...
+```
 
-Command
+Adding the current Ubuntu user to the `docker` group allows Docker commands to be run without `sudo`.
 
+---
+
+## ✅ Step 22: Apply Docker Group Permission
+
+### **Command**
+
+```bash
 newgrp docker
+```
 
-Why?
+### **Why?**
 
-The group change may not be active in the current terminal session. newgrp docker applies the Docker group membership immediately.
+The new group permission may not immediately become active in the current terminal session.
 
-Verify:
+`newgrp docker` activates the Docker group membership immediately.
 
+### **Verify**
+
+```bash
 groups
+```
 
-Step 23: Test Docker
+---
 
-Command
+## ✅ Step 23: Test Docker
 
+### **Command**
+
+```bash
 docker run hello-world
+```
 
-What happens?
+### **What happens?**
 
 Docker:
 
-Checks whether the hello-world image exists locally
+1. Checks whether the `hello-world` image exists locally
+2. Downloads the image if necessary
+3. Creates a container
+4. Runs the container
+5. Displays a success message
+6. Exits
 
-Downloads the image if necessary
+### **Expected Output**
 
-Creates a container
-
-Runs the container
-
-Displays a success message
-
-Exits
-
-Expected output:
-
+```text
 Hello from Docker!
 
 This message shows that your installation appears to be working correctly.
+```
 
+![Docker Hello World](screenshots/09-docker-hello-world.png)
 
+---
 
-Step 24: Final DevOps Tool Verification
+## ✅ Step 24: Final DevOps Tool Verification
 
-Commands
+### **Commands**
 
+```bash
 git --version
 java --version
 mvn --version
 docker --version
+```
 
-These commands verify that Git, Java, Maven, and Docker are installed successfully.
+### **Verification**
 
+```text
+Git      ✅
+Java     ✅
+Maven    ✅
+Docker   ✅
+```
 
+![Verify All Tools](screenshots/10-verify-all-tools.png)
 
-🐛 Errors and Troubleshooting
+---
 
-Error 1: SSH Private Key Permission Error
+# 🐛 Errors and Troubleshooting
 
-While connecting from Windows, SSH displayed an error similar to:
+## ❌ Error 1: SSH Private Key Permission Error
 
+While connecting from Windows, SSH displayed:
+
+```text
 WARNING: UNPROTECTED PRIVATE KEY FILE!
 Permissions for the private key are too open.
+```
 
-Cause
+### **Cause**
 
-The .pem private key had permissions that were too open.
+The `.pem` private key permissions were too open.
 
-Fix
+### **Fix**
 
-The Windows permissions on the private key were restricted so unauthorized users or groups could not access it. After fixing the permissions, the SSH connection worked successfully.
+The Windows permissions on the private key were restricted so unauthorized users or groups could not access the file.
 
-Error 2: Docker Permission Denied
+After correcting the permissions, the SSH connection worked successfully.
+
+---
+
+## ❌ Error 2: Docker Permission Denied
 
 Initially:
 
+```bash
 docker run hello-world
+```
 
 returned a Docker socket permission error.
 
-Cause
+### **Cause**
 
 The Ubuntu user did not yet have active Docker group permissions.
 
-Fix
+### **Fix**
 
+```bash
 sudo usermod -aG docker $USER
 newgrp docker
+```
 
-Then:
+Then run:
 
+```bash
 docker run hello-world
+```
 
-worked successfully without sudo.
+### **Result**
 
-📋 Complete Command Reference
+Docker worked successfully **without `sudo`**.
 
+---
+
+# 📋 Complete Command Reference
+
+```bash
 # Update Ubuntu package index
 sudo apt update
 
@@ -555,14 +669,20 @@ sudo apt upgrade -y
 
 # Install Git
 sudo apt install git -y
+
+# Verify Git
 git --version
 
 # Install Java 17
 sudo apt install openjdk-17-jdk -y
+
+# Verify Java
 java --version
 
 # Install Maven
 sudo apt install maven -y
+
+# Verify Maven
 mvn --version
 
 # Install Docker prerequisites
@@ -600,7 +720,7 @@ sudo systemctl status docker
 # Add current user to Docker group
 sudo usermod -aG docker $USER
 
-# Apply new group membership
+# Apply Docker group membership
 newgrp docker
 
 # Check groups
@@ -614,124 +734,108 @@ git --version
 java --version
 mvn --version
 docker --version
+```
 
-🌍 Real-World Scenario
+---
 
-A developer joins a team and needs a Linux environment for building and deploying Java applications with Docker.
+# 🌍 Real-World Scenario
 
-The DevOps setup process is:
+A new developer joins a team and requires a Linux environment for building and deploying Java applications using Docker.
 
-Launch an Ubuntu cloud server
+The DevOps engineer performs the following setup:
 
-Connect securely using SSH
-
-Update the operating system
-
+```text
+Launch Ubuntu Server
+        ↓
+Connect Using SSH
+        ↓
+Update Linux
+        ↓
 Install Git
-
+        ↓
 Install Java
-
+        ↓
 Install Maven
-
+        ↓
 Install Docker
+        ↓
+Configure Docker Permissions
+        ↓
+Test Docker Container
+        ↓
+Verify Environment
+```
 
-Configure Docker permissions
+The server is then ready for **development and future CI/CD pipelines**.
 
-Verify all tools
+---
 
-Deliver the server ready for development and future CI/CD work
-
-💡 What I Learned
+# 💡 What I Learned
 
 Through this project, I learned:
 
-How to launch an AWS EC2 instance
+- AWS EC2 instance creation
+- Ubuntu Linux server configuration
+- SSH remote connections
+- Linux package management
+- Git installation and verification
+- Java installation
+- Maven installation
+- Docker repository configuration
+- Docker GPG verification
+- Docker Engine installation
+- Linux service management using `systemctl`
+- Linux group permissions
+- Docker container testing
+- SSH troubleshooting
+- Docker permission troubleshooting
 
-How to configure an Ubuntu Linux server
+---
 
-How to connect to a remote server using SSH
+# ✅ Project Outcome
 
-How Linux package management works
+Successfully created and configured an **Ubuntu Linux server on AWS EC2**.
 
-How to install Git, Java, and Maven
-
-How Docker package verification works
-
-How to install Docker Engine
-
-How to manage services using systemctl
-
-How Linux groups affect Docker permissions
-
-How to troubleshoot SSH and Docker permission errors
-
-How to verify a complete DevOps server environment
-
-✅ Project Outcome
-
-Successfully created and configured an Ubuntu Linux server on AWS EC2.
-
+```text
 AWS EC2            ✅
 Ubuntu Linux       ✅
 SSH                ✅
-Git                ✅
-Java 17            ✅
-Apache Maven       ✅
-Docker Engine      ✅
-Docker Service     ✅
-Docker Permissions ✅
-Docker Container   ✅
+Git                 ✅
+Java 17             ✅
+Apache Maven        ✅
+Docker Engine       ✅
+Docker Service      ✅
+Docker Permissions  ✅
+Docker Container    ✅
+```
 
-The server is now ready for future DevOps projects involving:
+The server is ready for future projects involving:
 
-Git and GitHub workflows
+- **Git and GitHub**
+- **Maven**
+- **Jenkins CI/CD**
+- **Docker**
+- **Kubernetes**
+- **Ansible**
+- **Prometheus & Grafana**
+- **Cloud Automation**
 
-Maven build automation
+---
 
-Jenkins CI/CD
+# 🔗 Project Links
 
-Docker image creation
+**GitHub Repository:**  
+[linux-server-setup](https://github.com/Dhananjaynarwade/linux-server-setup)
 
-Kubernetes deployment
+**LinkedIn:**  
+[Dhananjay Narwade](https://www.linkedin.com/in/dhananjay-narwade-52976139a/)
 
-Ansible automation
+---
 
-Monitoring
+# 👨‍💻 Author
 
-Cloud automation
+**Dhananjay Narwade**
 
-📸 Project Screenshots
+**GitHub:** [Dhananjaynarwade](https://github.com/Dhananjaynarwade)
 
-01-select-ubuntu-ami.png
-
-02-select-instance-type-t3-micro.png
-
-03-create-key-pair.png
-
-04-configure-security-group.png
-
-05-configure-ebs-storage.png
-
-06-instance-running.png
-
-07-connect-ec2-ssh-client.png
-
-08-ssh-connected-to-ubuntu.png
-
-09-docker-hello-world.png
-
-10-verify-all-tools.png
-
-🔗 Project Links
-
-GitHub Repository: linux-server-setup
-
-LinkedIn: Dhananjay Narwade
-
-👨‍💻 Author
-
-Dhananjay Narwade
-
-GitHub: Dhananjaynarwade
-
-LinkedIn: Dhananjay Narwade
+**LinkedIn:** [Dhananjay Narwade](https://www.linkedin.com/in/dhananjay-narwade-52976139a/)
