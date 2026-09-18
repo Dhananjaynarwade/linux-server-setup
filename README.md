@@ -76,7 +76,6 @@ Verify All Tools
 ```
 
 ---
-
 ## ✅ Step 1: Select Ubuntu AMI
 
 I selected **Ubuntu Server** as the operating system for the EC2 instance.
@@ -120,7 +119,7 @@ t3.micro
 
 This instance is suitable for this **DevOps learning project**.
 
-![Select Instance Type](screenshots/02-select-instance-type-t3-micro.png)
+![Select Instance Type](screenshots/02-select-instance-type.png)
 
 ---
 
@@ -245,20 +244,29 @@ sudo apt update
 
 ### **Why do we use it?**
 
-`sudo apt update` refreshes Ubuntu's package index so the server knows about the latest packages available from configured repositories.
+`sudo apt update` refreshes Ubuntu's package index so the server knows about the latest packages available from the configured software repositories.
+
+### **How it works**
 
 ```text
 sudo apt update
       ↓
-Check repositories
+Check configured repositories
       ↓
 Download latest package information
       ↓
 Package index refreshed
 ```
 
----
+### **Command Explanation**
 
+- `sudo` → Runs the command with administrator privileges
+- `apt` → Ubuntu package manager
+- `update` → Refreshes the available package information
+
+> **Note:** `sudo apt update` does not install or upgrade packages. It only refreshes the package information.
+
+---
 ## ✅ Step 10: Upgrade Installed Packages
 
 ### **Command**
