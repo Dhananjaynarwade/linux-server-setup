@@ -215,53 +215,61 @@ ssh -i "DevOps-Project-1-Key.pem" ubuntu@<EC2-PUBLIC-DNS>
 ![Connect EC2 SSH Client](screenshots/07-connect-ec2-ssh-client.png)
 
 ---
-## ✅ Step 8: Connect to Ubuntu EC2 Server
+## ❌ SSH Private Key Permission Error
 
-While trying to connect to the EC2 Ubuntu server, I first encountered an SSH key permission-related issue.
+While connecting to the EC2 server, the SSH command itself was correct.
 
-### ❌ SSH Key Permission Error
+The problem was the **Windows permissions on the `.pem` private key**.
 
-I first tried the Linux command:
+Windows OpenSSH refused to use the key because another Windows group had access to it:
 
-```cmd
-chmod 400 "DevOps-Project-1-Key.pem"
+```text
+CodexSandboxUsers
 ```
 
-Windows Command Prompt returned an error because `chmod` is a Linux/Unix command and is not available directly in Windows CMD.
-
-![SSH Key Permission Error](screenshots/error.png)
-
-### Why did this happen?
-
-`chmod 400` is commonly used on Linux or macOS to restrict private-key permissions.
-
-Since I was using **Windows Command Prompt**, I needed to manage the `.pem` file permissions using Windows commands instead.
+A private SSH key must have restricted permissions.
 
 ### Fix
 
-I corrected the Windows permissions for the private key and then tried the SSH connection again.
+I used `icacls` in Windows CMD to restrict access to the private key.
 
-Example SSH command:
+First, remove inherited permissions:
 
 ```cmd
-ssh -i "DevOps-Project-1-Key.pem" ubuntu@<EC2-PUBLIC-DNS>
+icacls "C:\Users\Kamlesh\Downloads\DevOps-Project-1-Key.pem" /inheritance:r
 ```
 
-### ✅ SSH Connection Successful
+Then remove the group that had access:
 
-After correcting the private-key permissions, I successfully connected to the Ubuntu EC2 server.
-
-The terminal changed to an Ubuntu server prompt similar to:
-
-```text
-ubuntu@ip-172-31-xx-xx:~$
+```cmd
+icacls "C:\Users\Kamlesh\Downloads\DevOps-Project-1-Key.pem" /remove:g "LAPTOP-MMB8IBCM\CodexSandboxUsers"
 ```
 
-This confirms that commands are now being executed on the **remote Ubuntu EC2 server**.
+Then give only the current Windows user read permission:
 
-![SSH Connected](screenshots/09-ssh-connected-to-ubuntu.png)
+```cmd
+icacls "C:\Users\Kamlesh\Downloads\DevOps-Project-1-Key.pem" /grant:r "%USERNAME%:R"
+```
 
----
+Check the final permissions:
+
+```cmd
+icacls "C:\Users\Kamlesh\Downloads\DevOps-Project-1-Key.pem"
+```
+
+Then retry the SSH connection:
+
+```cmd
+ssh -i "C:\Users\Kamlesh\Downloads\DevOps-Project-1-Key.pem" ubuntu@ec2-16-16-217-31.eu-north-1.compute.amazonaws.com
+```
+
+### Result
+
+After correcting the `.pem` file permissions, the SSH connection worked successfully.
+
+![SSH Permission Error](screenshots/error.png)
+
+![SSH Connected Successfully](screenshots/09-ssh-connected-to-ubuntu.png)
 
 ## ✅ Step 9: Update Ubuntu Package Repository
 
