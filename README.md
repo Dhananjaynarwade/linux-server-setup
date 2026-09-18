@@ -269,7 +269,8 @@ After correcting the `.pem` file permissions, the SSH connection worked successf
 
 ![SSH Permission Error](screenshots/error.png)
 
-![SSH Connected Successfully](screenshots/09-ssh-connected-to-ubuntu.png)
+### Result
+![SSH Connected Successfully](screenshots/08-ssh-connected-to-ubuntu.png)
 
 ## ✅ Step 9: Update Ubuntu Package Repository
 
