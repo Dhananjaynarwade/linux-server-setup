@@ -154,7 +154,7 @@ Port: 22
 
 SSH provides a secure remote connection between the local computer and the Ubuntu EC2 server.
 
-![Configure Security Group](screenshots/04-configure-security-group.png)
+![Configure Security Group](screenshots/4-configure-network-security-group.png)
 
 ---
 
@@ -182,8 +182,7 @@ It stores:
 
 `gp3` is a **General Purpose SSD** suitable for Linux servers and DevOps learning environments.
 
-![Configure EBS Storage](screenshots/05-configure-ebs-storage.png)
-
+![Configure EBS Storage](screenshots/5-configure-ebs-storage.png)
 ---
 
 ## ✅ Step 6: Launch EC2 Instance
@@ -192,8 +191,7 @@ After reviewing the configuration, I launched the EC2 instance.
 
 The instance was successfully created and reached the **Running** state.
 
-![EC2 Instance Running](screenshots/06-instance-running.png)
-
+![EC2 Instance Running](screenshots/6-instance-running.png)
 ---
 
 ## ✅ Step 7: Get SSH Connection Details
@@ -264,6 +262,7 @@ Package index refreshed
 
 > **Note:** `sudo apt update` does not install or upgrade packages. It only refreshes the package information.
 
+![APT Update](screenshots/08-sudo-apt-update.png)
 ---
 ## ✅ Step 10: Upgrade Installed Packages
 
@@ -294,6 +293,7 @@ sudo apt upgrade -y
 = Install available package upgrades
 ```
 
+![Docker Hello World](screenshots/09-docker-hello-world.png)
 ---
 
 ## ✅ Step 11: Install Git
