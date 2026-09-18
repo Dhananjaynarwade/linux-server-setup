@@ -261,7 +261,6 @@ Package index refreshed
 
 > **Note:** `sudo apt update` does not install or upgrade packages. It only refreshes the package information.
 
-![APT Update](screenshots/08-sudo-apt-update.png)
 ---
 ## ✅ Step 10: Upgrade Installed Packages
 
@@ -580,6 +579,7 @@ This message shows that your installation appears to be working correctly.
 ```
 
 ![Docker Hello World](screenshots/09-docker-hello-world.png)
+![APT Update](screenshots/08-sudo-apt-update.png)
 
 ---
 
