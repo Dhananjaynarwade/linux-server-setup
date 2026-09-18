@@ -504,6 +504,7 @@ sudo systemctl status docker
 ```text
 Active: active (running)
 ```
+![APT Update](screenshots/08-sudo-apt-update.png)
 
 This confirms that the **Docker daemon is running successfully**.
 
@@ -579,7 +580,6 @@ This message shows that your installation appears to be working correctly.
 ```
 
 ![Docker Hello World](screenshots/09-docker-hello-world.png)
-![APT Update](screenshots/08-sudo-apt-update.png)
 
 ---
 
