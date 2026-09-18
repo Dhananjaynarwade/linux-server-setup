@@ -228,6 +228,7 @@ CodexSandboxUsers
 ```
 
 A private SSH key must have restricted permissions.
+![SSH Permission Error](screenshots/eroor.png)
 
 ### Fix
 
@@ -267,7 +268,6 @@ ssh -i "C:\Users\Kamlesh\Downloads\DevOps-Project-1-Key.pem" ubuntu@ec2-16-16-21
 
 After correcting the `.pem` file permissions, the SSH connection worked successfully.
 
-![SSH Permission Error](screenshots/error.png)
 
 ### Result
 ![SSH Connected Successfully](screenshots/08-ssh-connected-to-ubuntu.png)
