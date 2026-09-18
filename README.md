@@ -138,8 +138,7 @@ The `.pem` private key is used to securely authenticate when connecting to the E
 
 > ⚠️ **Important:** Never upload the `.pem` private key to GitHub.
 
-![Create Key Pair](screenshots/03-create-key-pair.png)
-
+![Create Key Pair](screenshots/3-create-key-pair.png)
 ---
 
 ## ✅ Step 4: Configure Security Group
