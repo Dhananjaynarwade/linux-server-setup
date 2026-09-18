@@ -215,10 +215,43 @@ ssh -i "DevOps-Project-1-Key.pem" ubuntu@<EC2-PUBLIC-DNS>
 ![Connect EC2 SSH Client](screenshots/07-connect-ec2-ssh-client.png)
 
 ---
-
 ## ✅ Step 8: Connect to Ubuntu EC2 Server
 
-After connecting successfully, the terminal changes to an Ubuntu server prompt similar to:
+While trying to connect to the EC2 Ubuntu server, I first encountered an SSH key permission-related issue.
+
+### ❌ SSH Key Permission Error
+
+I first tried the Linux command:
+
+```cmd
+chmod 400 "DevOps-Project-1-Key.pem"
+```
+
+Windows Command Prompt returned an error because `chmod` is a Linux/Unix command and is not available directly in Windows CMD.
+
+![SSH Key Permission Error](screenshots/error.png)
+
+### Why did this happen?
+
+`chmod 400` is commonly used on Linux or macOS to restrict private-key permissions.
+
+Since I was using **Windows Command Prompt**, I needed to manage the `.pem` file permissions using Windows commands instead.
+
+### Fix
+
+I corrected the Windows permissions for the private key and then tried the SSH connection again.
+
+Example SSH command:
+
+```cmd
+ssh -i "DevOps-Project-1-Key.pem" ubuntu@<EC2-PUBLIC-DNS>
+```
+
+### ✅ SSH Connection Successful
+
+After correcting the private-key permissions, I successfully connected to the Ubuntu EC2 server.
+
+The terminal changed to an Ubuntu server prompt similar to:
 
 ```text
 ubuntu@ip-172-31-xx-xx:~$
@@ -226,7 +259,8 @@ ubuntu@ip-172-31-xx-xx:~$
 
 This confirms that commands are now being executed on the **remote Ubuntu EC2 server**.
 
-![APT Update](screenshots/08-sudo-apt-update.png)
+![SSH Connected](screenshots/09-ssh-connected-to-ubuntu.png)
+
 ---
 
 ## ✅ Step 9: Update Ubuntu Package Repository
@@ -504,7 +538,6 @@ sudo systemctl status docker
 ```text
 Active: active (running)
 ```
-![APT Update](screenshots/08-sudo-apt-update.png)
 
 This confirms that the **Docker daemon is running successfully**.
 
