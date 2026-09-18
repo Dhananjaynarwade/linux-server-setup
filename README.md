@@ -119,7 +119,7 @@ t3.micro
 
 This instance is suitable for this **DevOps learning project**.
 
-![Select Instance Type](screenshots/02-select-instance-type.png)
+![Select Instance Type]\(screenshots/02-select-instance-type.png)
 
 ---
 
