@@ -226,8 +226,7 @@ ubuntu@ip-172-31-xx-xx:~$
 
 This confirms that commands are now being executed on the **remote Ubuntu EC2 server**.
 
-![SSH Connected](screenshots/08-ssh-connected-to-ubuntu.png)
-
+![APT Update](screenshots/08-sudo-apt-update.png)
 ---
 
 ## ✅ Step 9: Update Ubuntu Package Repository
